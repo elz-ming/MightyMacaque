@@ -8,15 +8,6 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-def development_start():
-    global API_KEY
-
-    import dotenv
-
-    dotenv.load_dotenv()
-
-    API_KEY = os.getenv('API_KEY')
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = (
         "I'm a bot, please talk to me!\n\n"
@@ -39,8 +30,6 @@ async def video(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 if __name__ == '__main__':
     API_KEY = os.getenv('API_KEY')
-
-    # development_start()
 
     application = ApplicationBuilder().token(API_KEY).build()
     
